@@ -1,0 +1,22 @@
+{% extends 'feedback_app/base.html' %}
+
+{% block title %}Contact Us - FeedbackApp{% endblock %}
+
+{% block content %}
+<h2>Contact Us</h2>
+
+{% if message %}
+    <div class="alert alert-success">{{ message }}</div>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token%}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% if show_button %}
+    <br><br>
+    <a href="{% url 'feedback:contact_queries_list' %}" class="btn btn-success">Want to look at the queries?</a>
+{% endif %}
+{% endblock %}

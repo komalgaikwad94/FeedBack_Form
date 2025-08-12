@@ -1,0 +1,18 @@
+<!-- feedback_app/templates/feedback_app/contact_queries_list.html -->
+{% extends 'feedback_app/base.html' %}
+
+{% block title %}Contact Queries - FeedbackApp{% endblock %}
+
+{% block content %}
+<h2>Submitted Contact Queries</h2>
+
+{% if queries %}
+    <ul>
+        {% for query in queries %}
+            <li>{{ query.full_name }}: {{ query.query }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No contact queries submitted yet.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'feedback_app/base.html' %}
+
+{% block title %}Feedback List - FeedbackApp{% endblock %}
+
+{% block content %}
+<h2>Submitted Feedback</h2>
+
+{% if feedbacks %}
+    <ul>
+        {% for feedback in feedbacks %}
+            <li>{{feedback.name}}:{{feedback.message}}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No feedback submitted yet.</p>
+{% endif %}
+{% endblock %}
